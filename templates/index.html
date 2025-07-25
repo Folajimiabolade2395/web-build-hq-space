@@ -74,6 +74,8 @@
                 {% endif %}
             {% endfor %}
         {% endif %}
-        <a class="text more-testimonies" href="{{ url_for('testimonies') }}" style="display: none;">View more testimonies</a>
+        {% if testimonies %}
+            <a class="text more-testimonies" href="{{ url_for('testimonies') }}" style="display: none;">View more testimonies</a>
+        {% endif %}
     </div>
 {% endblock %}
