@@ -266,8 +266,7 @@ def settings():
     user = db.session.execute(db.select(User).where(User.id == current_user.id)).scalar()
     settings_form = SettingsForm(
         first_name=user.first_name,
-        last_name=user.last_name,
-        email=user.email
+        last_name=user.last_name
     )
     if request.method == "POST":
         if settings_form.validate_on_submit():
@@ -276,10 +275,9 @@ def settings():
                 user = db.session.execute(db.select(User).where(User.id == current_user.id)).scalar()
                 user.first_name = data["first_name"].title()
                 user.last_name = data["last_name"].title()
-                user.email = data["email"]
                 db.session.commit()
             return redirect(url_for("account"))
-    return render_template("settings.html", form=settings_form)
+    return render_template("settings.html", form=settings_form, email=user.email)
 
 
 @app.route("/add-testimony", methods=["GET", "POST"])
