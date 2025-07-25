@@ -144,7 +144,7 @@ def admin_only(f):
 
 @app.route("/")
 def home():
-    posts = db.session.execute(db.select(Testimony).order_by(Testimony.id.desc())).scalars().all()
+    posts = db.session.execute(db.select(Testimony).order_by(Testimony.id)).scalars().all()[:3]
     return render_template("index.html", testimonies=posts)
 
 
