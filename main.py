@@ -1,5 +1,5 @@
 # Import necessary libraries and modules
-# flask creates the server that communicates with the users
+# flask creates the server that communicates with users
 # https://flask.palletsprojects.com/en/stable/quickstart/
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify, abort
 # os is where the secrets are saved, like developer passwords and api keys
