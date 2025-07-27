@@ -1,3 +1,45 @@
+# # Search test
+# from flask import Flask, render_template
+# from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy import String, Integer, DateTime, ForeignKey, text, Boolean
+#
+#
+# class Base(DeclarativeBase):
+#     pass
+#
+#
+# db = SQLAlchemy(model_class=Base)
+#
+#
+# class Person(db.Model):
+#     __tablename__ = "people"
+#     id: Mapped[int] = mapped_column(Integer(), primary_key=True)
+#     name: Mapped[str] = mapped_column(String())
+#     number: Mapped[int] = mapped_column(Integer())
+#
+#
+# app = Flask(__name__)
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pegasus"
+# db.init_app(app)
+#
+#
+# with app.app_context():
+#     db.create_all()
+#
+#
+# @app.route("/")
+# def index():
+#     query = Person.query.filter(Person.name.ilike(f'%chloe%')).all()
+#     return render_template("test.html", query=query)
+#
+#
+# if __name__ == "__main__":
+#     app.run(debug=True)
+#
+# # End of search test
+
+
 # # Pagination test
 # from flask import Flask, render_template
 # from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -41,23 +83,6 @@
 #     app.run(debug=True)
 
 # # End of pagination test
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # with smtplib.SMTP("smtp.gmail.com") as connection:
