@@ -65,6 +65,8 @@ number = os.environ.get("NUMBER")
 email = os.environ.get("EMAIL")
 password = os.environ.get("PASSWORD")
 
+video_url = os.environ.get("VIDEO-URL")
+
 load_dotenv()
 
 config = cloudinary.config(secure=True)
@@ -145,7 +147,7 @@ def admin_only(f):
 @app.route("/")
 def home():
     posts = db.session.execute(db.select(Testimony).order_by(Testimony.id)).scalars().all()[:3]
-    return render_template("index.html", testimonies=posts)
+    return render_template("index.html", testimonies=posts, video_url=video_url)
 
 
 @app.route("/about")
